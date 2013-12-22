@@ -1,0 +1,3 @@
+.tox/
+dist/
+django_cbvpatterns.egg-info/
