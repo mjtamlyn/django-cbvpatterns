@@ -8,7 +8,7 @@ What is this?
 -------------
 
 If you're a big fan of class based views in Django, you might often find your
-urls.py starting to look a little cluttered. Something like
+urls.py starting to look a little cluttered. Something like::
 
     from django.conf.urls import patterns, url
 
@@ -24,7 +24,7 @@ urls.py starting to look a little cluttered. Something like
     )
 
 The shortcuts you can use in patterns are really functional-view specific. The
-functional version looks much nicer:
+functional version looks much nicer::
 
     from django.conf.urls import patterns, url
 
@@ -37,7 +37,7 @@ functional version looks much nicer:
         url(r'^ponies/(?P<pk>\d+)/edit/$', 'pony_update, name='pony-update'),
     )
 
-So we can now have a class based view version which has the same feel:
+So we can now have a class based view version which has the same feel::
 
     from cbvpatterns import patterns, url
 
