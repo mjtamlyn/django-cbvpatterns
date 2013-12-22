@@ -51,7 +51,7 @@ So we can now have a class based view version which has the same feel::
     )
 
 You can also pass in the actual view classes directly, rather than using the
-strnig representation.
+string representation.
 
 Contributing
 ------------
