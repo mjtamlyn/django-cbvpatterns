@@ -1,5 +1,11 @@
 from django.core.exceptions import ImproperlyConfigured
-from django.core.urlresolvers import RegexURLPattern, RegexURLResolver, get_callable
+try:
+    # Django < 2.0
+    from django.core.urlresolvers import RegexURLPattern, RegexURLResolver, get_callable
+except:
+    # Django >= 2.0
+    from django.urls import RegexURLPattern, RegexURLResolver, get_callable
+
 from django.utils import six
 from django.views.generic import View
 
