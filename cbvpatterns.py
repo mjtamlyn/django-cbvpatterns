@@ -1,10 +1,10 @@
 from django.core.exceptions import ImproperlyConfigured
 try:
     # Django < 2.0
-    from django.core.urlresolvers import RegexURLPattern, RegexURLResolver, get_callable
+    from django.core.urlresolvers import RegexURLPattern as URLPattern, RegexURLResolver as URLResolver, get_callable
 except:
     # Django >= 2.0
-    from django.urls import RegexURLPattern, RegexURLResolver, get_callable
+    from django.urls import URLPattern, URLResolver, get_callable
 
 from django.utils import six
 from django.views.generic import View
