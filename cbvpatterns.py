@@ -10,7 +10,7 @@ from django.utils import six
 from django.views.generic import View
 
 
-class CBVRegexURLPattern(RegexURLPattern):
+class CBVRegexURLPattern(URLPattern):
     _callback_processed = None
 
     @property
@@ -44,7 +44,7 @@ def url(regex, view, kwargs=None, name=None, prefix=''):
     if isinstance(view, (list, tuple)):
         # For include(...) processing.
         urlconf_module, app_name, namespace = view
-        return RegexURLResolver(regex, urlconf_module, kwargs, app_name=app_name, namespace=namespace)
+        return URLResolver(regex, urlconf_module, kwargs, app_name=app_name, namespace=namespace)
     else:
         if isinstance(view, six.string_types):
             if not view:
