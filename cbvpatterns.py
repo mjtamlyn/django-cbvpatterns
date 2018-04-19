@@ -1,10 +1,16 @@
 from django.core.exceptions import ImproperlyConfigured
-from django.core.urlresolvers import RegexURLPattern, RegexURLResolver, get_callable
+try:
+    # Django < 2.0
+    from django.core.urlresolvers import RegexURLPattern as URLPattern, RegexURLResolver as URLResolver, get_callable
+except:
+    # Django >= 2.0
+    from django.urls import URLPattern, URLResolver, get_callable
+
 from django.utils import six
 from django.views.generic import View
 
 
-class CBVRegexURLPattern(RegexURLPattern):
+class CBVRegexURLPattern(URLPattern):
     _callback_processed = None
 
     @property
@@ -38,7 +44,7 @@ def url(regex, view, kwargs=None, name=None, prefix=''):
     if isinstance(view, (list, tuple)):
         # For include(...) processing.
         urlconf_module, app_name, namespace = view
-        return RegexURLResolver(regex, urlconf_module, kwargs, app_name=app_name, namespace=namespace)
+        return URLResolver(regex, urlconf_module, kwargs, app_name=app_name, namespace=namespace)
     else:
         if isinstance(view, six.string_types):
             if not view:
